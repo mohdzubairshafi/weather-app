@@ -29,7 +29,7 @@ export default function Input({ setQuery, setUnits }) {
     }
   }
   return (
-    <div className='flex flex-row  justify-center my-6'>
+    <div className='  w-max flex flex-col align-middle sm:flex-row  justify-center my-2 sm:my-6'>
       <div className=' flex flex-row w-11/12 items-center justify-end space-x-4 '>
         <form
           onSubmit={(e) => {
@@ -40,7 +40,7 @@ export default function Input({ setQuery, setUnits }) {
           <input
             onChange={handleChange}
             type='text'
-            className=' text-lg font-light p-1 w-full shadow-xl focus:outline-none  placeholder:lowercase
+            className=' text-lg font-light  px-1 py-0 sm:p-1 w-32 sm:w-full  shadow-xl focus:outline-none  placeholder:lowercase
           capitalize '
             name='location'
             placeholder='Search for city...'
@@ -53,7 +53,7 @@ export default function Input({ setQuery, setUnits }) {
           onClick={() => {
             getdata();
           }}
-          className=' text- text-white cursor-pointer transition ease-out hover:scale-125'
+          className='  text-white cursor-pointer transition ease-out hover:scale-125'
         />
         <HiOutlineLocationMarker
           onClick={handelLocationClick}
@@ -61,7 +61,7 @@ export default function Input({ setQuery, setUnits }) {
           className=' text-white cursor-pointer transition ease-out hover:scale-125'
         />
       </div>
-      <div className=' flex flex-row w-1/4 items-center justify-center'>
+      <div className=' mt-1 w-full flex flex-row sm:w-1/4 items-center justify-center'>
         <button
           name='metric'
           onClick={() => {
@@ -71,7 +71,7 @@ export default function Input({ setQuery, setUnits }) {
         >
           °C
         </button>
-        <p className='text-lg text-white mx-2'>|</p>
+        <p className=' text-lg text-white mx-2'>|</p>
         <button
           name='imperial'
           onClick={() => {

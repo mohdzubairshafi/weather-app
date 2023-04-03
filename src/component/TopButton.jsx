@@ -25,9 +25,13 @@ export default function TopButton({ setQuery }) {
   ];
 
   return (
-    <div className=' flex items-center space-x-7 justify-center my-6'>
+    <div className=' w-3/4 flex items-center   justify-around  my-1 sm:my-6'>
       {cities.map((city) => (
-        <button key={city.id} onClick={() => setQuery({ q: city.title })} className='text-white text-lg font-medium '>
+        <button
+          key={city.id}
+          onClick={() => setQuery({ q: city.title })}
+          className='text-white  font-medium mx-1  text-sm sm:text-lg  '
+        >
           {city.title}
         </button>
       ))}

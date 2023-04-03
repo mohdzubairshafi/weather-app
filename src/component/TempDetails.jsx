@@ -16,7 +16,7 @@ export default function TempDetails({
       </div>
       <div className='flex flex-row items-center  justify-around text-white py-1 px-4'>
         <img src={iconeUrlFromCode(icon)} alt='WeatherImage' className=' w-20' />
-        <p className='text-3xl ml-10 '>{temp.toFixed()}°</p>
+        <p className='text-3xl'>{temp.toFixed()}°</p>
 
         <div className=' flex flex-col space-y-1 '>
           <div className=' flex font-light text-xs items-center justify-center'>
@@ -32,7 +32,7 @@ export default function TempDetails({
           </div>
         </div>
       </div>
-      <div className='flex justify-center items-center text-white space-x-2 text-xs py-1'>
+      <div className=' flex justify-center items-center text-white space-x-2 text-xs py-1'>
         <FiSun />
         <p className='font-light '>
           Rise: <span className='font-medium ml-1'>{formatToLocalTime(sunrise, timezone, "hh:mm a")}</span>

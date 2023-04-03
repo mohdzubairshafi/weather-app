@@ -24,14 +24,23 @@ function App() {
     fetchWeather();
   }, [query, units]);
   const formatBackground = () => {
-    if (!weather) return "bg-blue-400  ";
+    if (!weather) return "bg-transparent";
     const threshold = units === "metric" ? 20 : 60;
 
     if (weather.temp <= threshold) return " backdrop-blur-md   bg-gray-500 ";
     return " bg-orange-400";
   };
+
+  const contextClass = {
+    success: "bg-green-600",
+    info: "bg-blue-700",
+    warning: "bg-orange-400",
+    default: "bg-indigo-600",
+    dark: "bg-white-600 font-gray-300",
+  };
+
   return (
-    <>
+    <div className=' px-4'>
       <video
         className='h-[100%] w-[100%] object-cover absolute top-0 left-0 z-0'
         src='./assets/videobg.mp4'
@@ -40,8 +49,15 @@ function App() {
         muted
       />
       <div
-        className={` mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br h-[95vh] rounded-3xl  z-10   shadow-md   bg-clip-padding backdrop-filter backdrop-blur-sm 
-        bg-opacity-40 border border-black      ${formatBackground()}`}
+        className={`  mx-auto max-w-screen-md   mt-4 py-5 px-32 bg-gradient-to-br h-[95vh] rounded-3xl  z-10   shadow-xl  bg-clip-padding backdrop-filter backdrop-blur-sm 
+        bg-opacity-40 border border-black      ${formatBackground()}   
+
+        flex
+        flex-col
+        justify-center
+        items-center
+    px-3
+        `}
       >
         {weather && (
           <>
@@ -54,8 +70,17 @@ function App() {
           </>
         )}
       </div>
-      <ToastContainer autoClose={3000} theme='colored' newestOnTop={true} />
-    </>
+      <ToastContainer
+        toastClassName={({ type }) =>
+          contextClass[type || "default"] +
+          " m-3 w-[70%] sm:w-full relative  p-1 min-h-10 rounded-md flex justify-center items-center overflow-hidden cursor-pointer shadow-md   bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70   "
+        }
+        bodyClassName={() => "text-sm font-white font-med block p-3 flex justify-start "}
+        autoClose={3000}
+        theme='colored'
+        newestOnTop={true}
+      />
+    </div>
   );
 }
 
