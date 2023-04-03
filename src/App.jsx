@@ -5,9 +5,7 @@ import TempDetails from "./component/TempDetails";
 import TimeAndLocation from "./component/TimeAndLocation";
 import TopButton from "./component/TopButton";
 import getFormattedWeatherData from "./Services/Weather";
-import { DateTime } from "luxon";
 import { useEffect } from "react";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
@@ -26,15 +24,24 @@ function App() {
     fetchWeather();
   }, [query, units]);
   const formatBackground = () => {
-    if (!weather) return "from-cyan-700 to-blue-700  ";
+    if (!weather) return "bg-blue-400  ";
     const threshold = units === "metric" ? 20 : 60;
-    if (weather.temp <= threshold) return "from-cyan-700 to-blue-700";
-    return "from-yellow-700 to-orange-700";
+
+    if (weather.temp <= threshold) return " backdrop-blur-md   bg-gray-500 ";
+    return " bg-orange-400";
   };
   return (
     <>
+      <video
+        className='h-[100%] w-[100%] object-cover absolute top-0 left-0 z-0'
+        src='./assets/videobg.mp4'
+        autoPlay
+        loop
+        muted
+      />
       <div
-        className={` mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}
+        className={` mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br h-[95vh] rounded-3xl  z-10   shadow-md   bg-clip-padding backdrop-filter backdrop-blur-sm 
+        bg-opacity-40 border border-black      ${formatBackground()}`}
       >
         {weather && (
           <>

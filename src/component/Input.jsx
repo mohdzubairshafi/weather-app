@@ -30,7 +30,7 @@ export default function Input({ setQuery, setUnits }) {
   }
   return (
     <div className='flex flex-row  justify-center my-6'>
-      <div className=' flex flex-row w-3/4 items-center justify-center space-x-4 '>
+      <div className=' flex flex-row w-11/12 items-center justify-end space-x-4 '>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -40,7 +40,7 @@ export default function Input({ setQuery, setUnits }) {
           <input
             onChange={handleChange}
             type='text'
-            className=' text-xl font-light p-2 w-full shadow-xl focus:outline-none  placeholder:lowercase
+            className=' text-lg font-light p-1 w-full shadow-xl focus:outline-none  placeholder:lowercase
           capitalize '
             name='location'
             placeholder='Search for city...'
@@ -49,7 +49,7 @@ export default function Input({ setQuery, setUnits }) {
         </form>
 
         <BsSearch
-          size={25}
+          size={20}
           onClick={() => {
             getdata();
           }}
@@ -67,17 +67,17 @@ export default function Input({ setQuery, setUnits }) {
           onClick={() => {
             setUnits("metric");
           }}
-          className=' text-xl text-white font-light transition ease-out hover:scale-125'
+          className=' text-lg text-white font-light transition ease-out hover:scale-125'
         >
           °C
         </button>
-        <p className='text-xl text-white mx-2'>|</p>
+        <p className='text-lg text-white mx-2'>|</p>
         <button
           name='imperial'
           onClick={() => {
             setUnits("imperial");
           }}
-          className=' text-xl text-white font-light  transition ease-out hover:scale-125'
+          className=' text-lg text-white font-light  transition ease-out hover:scale-125'
         >
           °F
         </button>
